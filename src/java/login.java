@@ -96,15 +96,15 @@ public class login extends HttpServlet {
                 } else {
                     int Level = rs.getInt("Level");
                     HttpSession session = request.getSession();
-                    session.setAttribute("nama", rs.getString("nama"));
-                    session.setAttribute("nik", rs.getString("nik"));
+                    session.setAttribute("nama", rs.getString("Nama"));
+                    session.setAttribute("nik", rs.getString("No_Induk"));
                     session.setAttribute("status", rs.getString("status"));
-                    session.setAttribute("tanggal", rs.getString("tanggal"));
-                    session.setAttribute("alamat", rs.getString("alamat"));
+                    session.setAttribute("tanggal", rs.getString("Tanggal_Masuk"));
+                    session.setAttribute("alamat", rs.getString("Alamat"));
                     session.setAttribute("jabatan", rs.getString("Jabatan"));
-                    session.setAttribute("no_telp", rs.getString("no_telp"));
-                    session.setAttribute("regional", rs.getString("regional"));
-                    out.println(Level);
+//                    session.setAttribute("no_telp", rs.getString("No_telp"));
+//                    session.setAttribute("regional", rs.getString("regional"));
+                    out.println(String.valueOf(Level));
                 }
 
             } else {
@@ -112,6 +112,7 @@ public class login extends HttpServlet {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+             out.println(e);
         }
     }
 
